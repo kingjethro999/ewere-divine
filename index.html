@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/message.css">
+    <style>
+
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <div class="dashboard-container">
+        <aside class="sidebar position-fixed h-100 bg-white border-end d-flex flex-column">
+            <div class="brand-header d-flex align-items-center justify-content-center">
+                <img src="./img/upscaled_lincoln.jpg" class="img-fluid p-2 h-auto brand-logo">
+            </div>
+
+            <button class="close-sidebar btn border-0 position-absolute top-0 end-0 m-3">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <nav class="p-3">
+                <a href="#" class="nav-item d-flex align-items-center rounded-3 mb-1 active">
+                    <i class="fas fa-home nav-icon"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item d-flex align-items-center rounded-3 mb-1">
+                    <i class="fas fa-clipboard-check nav-icon"></i>
+                    <span>Mark Attendance</span>
+                </a>
+                <a href="timetable.html" class="nav-item d-flex align-items-center rounded-3 mb-1">
+                    <i class="fas fa-calendar nav-icon"></i>
+                    <span>View Timetables</span>
+                </a>
+                <a href="#" class="nav-item d-flex align-items-center rounded-3 mb-1">
+                    <i class="fas fa-graduation-cap nav-icon"></i>
+                    <span>Check Results</span>
+                </a>
+                <a href="#" class="nav-item d-flex align-items-center rounded-3 mb-1">
+                    <i class="fas fa-credit-card nav-icon"></i>
+                    <span>Make Payments</span>
+                </a>
+                <a href="#" class="nav-item d-flex align-items-center rounded-3 mb-1">
+                    <i class="fas fa-chalkboard-teacher nav-icon"></i>
+                    <span>Book Tutoring</span>
+                </a>
+                <a href="#" class="nav-item d-flex align-items-center rounded-3 mb-1">
+                    <i class="fas fa-chalkboard nav-icon"></i>
+                    <span> Courses</span>
+                </a>
+                <a href="#" class="nav-item d-flex align-items-center rounded-3 mb-1">
+                    <i class="fas fa-bell nav-icon"></i>
+                    <span>Event Reminders</span>
+                </a>
+                <a href="#" class="nav-item d-flex align-items-center rounded-3">
+                    <i class="fas fa-address-book nav-icon"></i>
+                    <span>School Contact</span>
+                </a>
+            </nav>
+
+            <div class="p-3 mt-auto">
+                <a href="#" class="nav-item d-flex align-items-center rounded-3">
+                    <i class="fas fa-sign-out-alt nav-icon"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Sidebar Overlay do not touch -->
+        <div class="sidebar-overlay"></div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="position-fixed bg-white border-bottom d-flex align-items-center px-3"
+                style="height: var(--header-height); width: calc(100% - var(--sidebar-width)); z-index: 999;">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col d-flex align-items-center">
+                            <button class="btn border-0 p-0 d-flex mobile-toggle main-toggle d-none me-2">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                        </div>
+                        <div class="col-6 col-md-8 text-center">
+                            <input type="text" class="form-control mx-auto rounded-pill" placeholder="Search..."
+                                style="max-width: 500px;">
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <div class="rounded-circle ms-3"
+                                style="width: 40px; height: 40px; background-color: var(--primary-color);"></div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="sidebar-overlay1"></div>
+
+            <main class="mt-5 pt-4">
+                <div class="container-fluid px-4 py-4 rounded">
+                    <div class="messaging-container bg-white rounded-lg shadow">
+                        <div class="chat-sidebar">
+                            <div class="p-3 border-bottom d-flex align-items-center justify-content-between">
+                                <input type="text" class="form-control" placeholder="Search users..." id="userSearch">
+                                <button class="btn btn-sm btn-light ms-2 close-sidebar d-md-none">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+        
+                            <div class="chat-list-container">
+                                <!-- Recent chats will be populated here -->
+                            </div>
+                        </div>
+        
+                        <div class="chat-main">
+                            <div class="chat-header d-none">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button class="btn btn-sm btn-light d-md-none mobile-toggle chat-toggle me-2">
+                                        <i class="fas fa-bars"></i>
+                                    </button>
+                                    <div class="d-flex align-items-center flex-grow-1">
+                                        <!-- Chat header will be populated when a chat is selected -->
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="messages-container" id="messageContainer">
+                            </div>
+        
+                            <div class="chat-input d-none">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="messageInput"
+                                        placeholder="Type a message...">
+                                    <button class="btn btn-primary" onclick="sendMessage()">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+        
+                            <div class="no-chat-selected">
+                                <div class="text-center text-muted">
+                                    <button class="btn btn-sm btn-light d-md-none mobile-toggle mb-3">
+                                        <i class="fas fa-bars"></i>
+                                    </button>
+                                    <div>
+                                        <i class="fas fa-comments fs-1 mb-3"></i>
+                                        <p>Select a chat or search for users to start messaging</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="./javascript/script.js"></script>
+    <script src="./javascript/message-script.js"></script>
+</body>
+
+</html>
